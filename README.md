@@ -1,6 +1,6 @@
-# Niyogya - Hospital Management System
+# Nirogya - Hospital Management System
 
-**Niyogya** is a full-stack hospital management system built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The system is designed to manage various operations of a hospital such as patient registration, appointment scheduling, billing, and more. It provides an intuitive interface for doctors, patients, and administrators to handle their respective tasks efficiently.
+**Nirogya** is a full-stack hospital management system built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The system is designed to manage various operations of a hospital such as patient registration, appointment scheduling, billing, and more. It provides an intuitive interface for doctors, patients, and administrators to handle their respective tasks efficiently.
 
 ## Features
 
@@ -141,9 +141,5 @@ This project is licensed under the MIT License.
 
 For any queries or feedback, feel free to reach out:
 
-- **Email**: support@niyogya.com
-- **GitHub**: [https://github.com/your-username/niyogya-hospital-management](https://github.com/your-username/niyogya-hospital-management)
-
----
-
-This README provides a detailed overview of Niyogya's setup, usage, and project structure. You can modify it as per your project's specific details.
+- **Email**: support@nirogya.com
+- **GitHub**: [https://github.com/your-username/nirogya-hospital-management](https://github.com/your-username/nirogya-hospital-management)
