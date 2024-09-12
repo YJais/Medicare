@@ -32,13 +32,13 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/niyogya-hospital-management.git
+   git clone https://github.com/your-username/nirogya-hospital-management.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd niyogya-hospital-management
+   cd nirogya-hospital-management
    ```
 
 3. Install server-side dependencies:
@@ -60,7 +60,7 @@ Make sure you have the following installed on your machine:
    Create a `.env` file in the `server` directory and include the following:
 
    ```bash
-   MONGO_URI=mongodb://localhost:27017/niyogya
+   MONGO_URI=mongodb://localhost:27017/nirogya
    JWT_SECRET=your_jwt_secret
    ```
 
