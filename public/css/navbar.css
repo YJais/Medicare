@@ -1,0 +1,13 @@
+.menu{
+    text-align: right;
+}
+a{
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: right;
+}
+a:hover{
+    cursor: pointer;
+}
