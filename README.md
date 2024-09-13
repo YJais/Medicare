@@ -1,6 +1,6 @@
-# Nirogya - Hospital Management System
+# Medicare - Hospital Management System
 
-**Nirogya** is a full-stack hospital management system built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The system is designed to manage various operations of a hospital such as patient registration, appointment scheduling, billing, and more. It provides an intuitive interface for doctors, patients, and administrators to handle their respective tasks efficiently.
+**Medicare** is a full-stack hospital management system built using the MERN stack (MongoDB, Express.js, React.js, Node.js). The system is designed to manage various operations of a hospital such as patient registration, appointment scheduling, billing, and more. It provides an intuitive interface for doctors, patients, and administrators to handle their respective tasks efficiently.
 
 ## Features
 
@@ -32,80 +32,24 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/nirogya-hospital-management.git
+   git clone https://github.com/your-username/medicare.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd nirogya-hospital-management
+   cd Medicare
    ```
 
-3. Install server-side dependencies:
+3. Start the development server (both backend and frontend):
 
    ```bash
-   cd server
-   npm install
+   nodemon index.js
    ```
-
-4. Install client-side dependencies:
-
-   ```bash
-   cd ../client
-   npm install
-   ```
-
-5. Set up environment variables:
-
-   Create a `.env` file in the `server` directory and include the following:
-
-   ```bash
-   MONGO_URI=mongodb://localhost:27017/nirogya
-   JWT_SECRET=your_jwt_secret
-   ```
-
-6. Start the MongoDB server:
-
-   ```bash
-   mongod
-   ```
-
-7. Start the development server (both backend and frontend):
-
-   In the `server` directory, run:
-
-   ```bash
-   npm run dev
-   ```
-
-   In the `client` directory, run:
-
-   ```bash
-   npm start
-   ```
-
 8. Open the application:
 
-   Visit `http://localhost:3000` in your browser to access the application.
+   Visit `http://localhost:5000/` in your browser to access the application.
 
-## Folder Structure
-
-```
-|-- client/
-    |-- public/
-    |-- src/
-        |-- components/      # Reusable React components
-        |-- pages/           # Different application pages
-        |-- services/        # API service files
-        |-- App.js           # Main app component
-        |-- index.js         # React entry point
-|-- server/
-    |-- config/              # Database connection and environment setup
-    |-- controllers/         # Application logic
-    |-- models/              # MongoDB models (patients, doctors, etc.)
-    |-- routes/              # API routes
-    |-- server.js            # Express server entry point
-```
 
 ## API Endpoints
 
@@ -141,5 +85,5 @@ This project is licensed under the MIT License.
 
 For any queries or feedback, feel free to reach out:
 
-- **Email**: support@nirogya.com
-- **GitHub**: [https://github.com/your-username/nirogya-hospital-management](https://github.com/your-username/nirogya-hospital-management)
+- **Email**: support@Medicare.com
+- **GitHub**: [https://github.com/your-username/medicare](https://github.com/your-username/medicare)
