@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard-Medicare</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/pagestyle.css">
     <script type="text/javaScript">
         <% if (typeof success !== 'undefined') { %>
             alert("<%= success %>");
@@ -11,6 +13,26 @@
     </script>
 </head>
 <body>
-    <h1>hello</h1>
+    <div>
+        <%-include('title')%>
+        <hr>
+    </div>
+    <div id="content">
+        <form method="get" action="/getappointment">
+            <button class="main"><h1>Book Appointment</h1></button>
+        </form>
+        <form method="get" action="/pay">
+        <button class="main"><h1>Make Payment</h1></button>
+        </form>
+        
+    </div>
+    <div id="content">
+        <form method="get" action="/pres">
+            <button class="main"><h1>Prescriptions</h1></button>
+        </form>
+        <form method="get" action="/feed">
+        <button class="main"><h1>Feedback</h1></button>
+        </form>
+    </div>
 </body>
 </html>

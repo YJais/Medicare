@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment-Medicare</title>
+    <link rel="stylesheet" href="/css/appointment.css">
+    <link rel="stylesheet" href="/css/pagestyle.css">
+</head>
+<body>
+    <div>
+        <%-include('title')%>
+        <hr>
+    </div>
+    <div>
+        <%-include('navbar')%>
+        <hr>
+    </div>
+    <div id="main">
+        <h1 class="pagtitle"><strong>Get Appointment</strong></h1>
+        <form action="" method="post">
+            <fieldset>
+                <label for="name" class="name">Full Name</label>
+            <input type="text" name="patname" id="patname">
+            <label for="contact" class="contact">Contact No.</label>
+            <input type="number" name="patcontact" id="patcontact">
+            <label for="dept">Department</label>
+            <input type="text" list="dept" name="choosedept" id="choosedept">
+            <datalist id="dept">
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Pediatrics</option>
+                <option>Gynecology</option>
+                <option>Oncology</option>
+                <option>Orthopedics</option>
+                <option>Urology</option>
+                <option>Dermatology</option>
+                <option>Gastroenterology</option>
+                <option>Nephrology</option>
+                <option>Pulmonology</option>
+                <option>Psychiatry</option>
+                <option>Endocrinology</option>
+                <option>Rheumatology</option>
+                <option>Ophthalmology</option>
+                <option>ENT (Otorhinolaryngology)</option>
+                <option>Hematology</option>
+                <option>Infectious Diseases</option>
+                <option>Physical Medicine and Rehab</option>
+                <option>General Surgery</option>
+                <option>Radiology</option>
+                <option>Pathology</option>
+            </datalist>
+
+            <label for="name">Full Name</label>
+            <input type="text" name="patname" id="patname">
+            <label for="name">Full Name</label>
+            <input type="text" name="patname" id="patname">
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

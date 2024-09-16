@@ -1,0 +1,40 @@
+.pagtitle{
+    text-align: center;
+}
+
+form {
+    width: 80vw;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    font-size: large;
+}
+
+fieldset {
+    margin-top: 2.2em;
+    margin-left: 2.5em;
+    border-color: #000;
+    
+    border: 3px solid #fff;
+}
+
+.name,.contact{
+    display: inline-block;
+}
+.contact{
+    padding-left: 20px;
+}
+
+label{
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+input{
+    margin: 5px 0 0 0;
+    min-width: 30em;
+    min-height: 2em;
+    background-color: #fff;
+    border: 1px solid #000;
+}

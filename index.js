@@ -69,6 +69,9 @@ app.get("/dashboard",async(req,res)=>{
     }
     console.log("Login Successful. Redirecting to dashboard");
     res.render("dashboard",{success:"You have successfully logged in!"})
+});
+app.get("/getappointment",(req,res)=>{
+    res.render("appointment");
 })
 app.listen(5000,()=>{
     console.log("Listening");
