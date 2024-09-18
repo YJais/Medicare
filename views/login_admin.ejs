@@ -21,17 +21,14 @@
         <table width="300px" height="500px" align="center" id="loginform">
             <tr>
                 <td>
-                    <form action="/login" method="post">  <!--To Do implement action method-->
+                    <form action="/login_adminbtn" method="post">  <!--To Do implement action method-->
                         
                         <fieldset>
                             <h1 class="frmtitle"><strong>Log In</strong></h1>
-                            <label>E-mail</label>
-                            <input type="email" name="usremail" id="usremail" required>
-                            <% if (errors && errors.email) { %>
-                                <p style="color: red;"><%= errors.email %></p>
-                            <% } %>
+                            <label>Username</label>
+                            <input type="text" name="adname" id="adname" required>
                             <label>Password</label>
-                            <input type="password" name="usrpass" id="usrpass" required>
+                            <input type="password" name="adpass" id="adpass" required>
                             <input type="submit" value="Log In" name="lgnbtn" id="lgnbtn">
                         </fieldset>
                     </form> 
