@@ -85,7 +85,7 @@ app.post("/login_adminbtn",async(req,res)=>{
     let aname=req.body.adname;
     let apass=req.body.adpass;
     let collection=await admin();
-    console.log("Login Successful. Redirecting to dashboard");
+    console.log("Admin Login Successful. Redirecting to admin dashboard");
     res.redirect("/dashboard_admin");
 });
 
