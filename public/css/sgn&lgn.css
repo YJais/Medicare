@@ -1,8 +1,10 @@
 body{
-    background-color: black;
-    margin: 0;
-    color: white;
+    
+    margin-top:0px;
+    margin-bottom:0px;
     align-content: center;
+    background-image: url("https://img.freepik.com/free-vector/modern-abstract-white-minimal-background_84443-8360.jpg");
+    background-color:#F0F8FF;
 }
 
 .frmtitle{
@@ -18,12 +20,15 @@ form {
     font-size: large;
 }
 
-fieldset {
+fieldset{
     margin-top: 2.2em;
     margin-left: 2.5em;
-    border-color: #000;
+    border-color:#48CFCB;
     padding: 1rem 0 0 1.2em ;
-    border: 3px solid #fff;
+    box-shadow:0px 0px 20px #424242;
+    border-radius: 15px;
+    color:#229799;
+    background-color: #FAFDFF;
 }
 
 label {
@@ -37,7 +42,7 @@ input{
     min-width: 30em;
     min-height: 2em;
     background-color: #fff;
-    border: 1px solid #000;
+    border: 1px solid #229799;
 }
 
 #sgnbtn,#lgnbtn{
@@ -46,14 +51,22 @@ input{
     width: 30%;
     height: 2em;
     text-align: center;
-
     font-size: 1.1rem;
-    border: 1px solid black;
+    border: 1px solid #229799;
     min-width: 0;
-   
     padding-bottom: 0;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+}
+#usrname,#firname,#midname,#lstname,#usremail,#usrpass{
+    border-color: #229799;
+    border-radius: 10px;
+}
+#sgnbtn,#lgnbtn{
+    border-color: #229799;
+    border-radius: 15px;
+    background-color:#229799 ;
+    color:white;
 }
