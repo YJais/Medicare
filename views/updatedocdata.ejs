@@ -1,0 +1,52 @@
+<!-- <html>
+<body>
+<h1>Update Data</h1>
+<form method="get" action="/updateres">
+	Doc_ID <input type="text" name="d_id" value="<%=rec[0].doc_id%>" readonly /><br>
+	Name <input type="text" name="d_name" value="<%=rec[0].name%>" /><br>
+	Designation <input type="text" name="d_desig" value="<%=rec[0].designation%>" /><br>
+	Salary <input type="text" name="d_sal" value="<%=rec[0].salary%>" /><br>
+	<input type="submit" value="Update" />
+</form>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Doctor Data</title>
+</head>
+<body>
+    <h1>Update Data</h1>
+    <form method="get" action="/updateres">
+        Doc_ID: <input type="text" name="d_id" value="<%= rec[0].doc_id %>" readonly /><br>
+        Name: <input type="text" name="d_name" value="<%= rec[0].doc_name %>" /><br>
+        Designation: <input type="text" name="d_desig" value="<%= rec[0].doc_desig %>" /><br>
+        Salary: <input type="text" name="d_sal" value="<%= rec[0].doc_sal %>" /><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Doctor Data</title>
+</head>
+<body>
+    <h1>Update Data</h1>
+
+    <form method="POST" action="/updateres">
+        <!-- Pre-fill the form fields with the doctor's data -->
+        Doc_ID: <input type="text" name="d_id" value="<%= rec.doc_id %>" readonly /><br>
+        Name: <input type="text" name="d_name" value="<%= rec.doc_name %>" /><br>
+        Designation: <input type="text" name="d_desig" value="<%= rec.doc_desig %>" /><br>
+        Salary: <input type="text" name="d_sal" value="<%= rec.doc_sal %>" /><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

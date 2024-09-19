@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Welcome to the Dashboard</h1>
+
+    <form id="payment-form">
+        <div id="card-element"><!-- Stripe's card input field --></div>
+        <button id="submit">Pay</button>
+        <p id="error-message"></p>
+        <p id="success-message"></p>
+    </form>
+
+    <script>
+        const stripe = Stripe('your_stripe_publishable_key'); // Add your Stripe publishable key here
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        const form = document.getElementById('payment-form');
+        const submitButton = document.getElementById('submit');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Disable the submit button to prevent multiple clicks
+            submitButton.disabled = true;
+
+            const { clientSecret } = await fetch('/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    amount: 5000, // Example amount: 5000 cents = 50 USD
+                }),
+            }).then((response) => response.json());
+
+            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: cardElement,
+                },
+            });
+
+            if (error) {
+                document.getElementById('error-message').textContent = error.message;
+                submitButton.disabled = false;
+            } else {
+                if (paymentIntent.status === 'succeeded') {
+                    document.getElementById('success-message').textContent = 'Payment successful!';
+                    submitButton.disabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
