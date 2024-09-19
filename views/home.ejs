@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicare-Home</title>
+    <title>Home</title>
     <link rel="stylesheet" href="/css/pagestyle.css">
 </head>
 <body>
     <div>
-        <%-include('title')%>
-        <hr>
+        <table width="300px" height="500px" align="center">
+            <tr>
+                <td>
+                    <form>
+                        <fieldset>
+                            <h1 class="frmtitle"><strong>MEDICARE</strong></h1>
+                            <a id="btn" href="/signup">SignUp</a>
+                            <a id="btn" href="/login">LogIn</a>
+                        </fieldset>
+                    </form> 
+                </td>
+            </tr>
+        </table>
     </div>
-    <div>
-        <%-include('navbar')%>
-        <hr>
-    </div>
-    
 </body>
 </html>
