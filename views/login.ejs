@@ -6,17 +6,12 @@
     <title>LogIn-Medicare</title>
     <link rel="stylesheet" href="/css/sgn&lgn.css">
     <script type="text/javaScript">
-       <% if (typeof success !== 'undefined') { %>
+        <% if (typeof success !== 'undefined') { %>
             alert("<%= success %>");
         <% } %>
     </script>
 </head>
 <body>
-    <div>
-        <%-include('title')%>
-        <hr>
-    </div>
-    <br>
     <div>
         <table width="300px" height="500px" align="center" id="loginform">
             <tr>
@@ -38,7 +33,6 @@
                 </td>
             </tr>
         </table>
-       
     </div>
 </body>
 </html>
