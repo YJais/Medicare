@@ -27,8 +27,14 @@
                             <h1 class="frmtitle"><strong>Log In</strong></h1>
                             <label>Username</label>
                             <input type="text" name="adname" id="adname" required>
+                            <% if (errors && errors.ad_name) { %>
+                                <p style="color: red;"><%= errors.ad_name %></p>
+                            <% } %>
                             <label>Password</label>
                             <input type="password" name="adpass" id="adpass" required>
+                            <% if (errors && errors.adpassword) { %>
+                                <p style="color: red;"><%= errors.adpassword %></p>
+                            <% } %>
                             <input type="submit" value="Log In" name="lgnbtn" id="lgnbtn">
                         </fieldset>
                     </form> 
