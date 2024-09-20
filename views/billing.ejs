@@ -1,62 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script src="https://js.stripe.com/v3/"></script>
+    <title>Payment Page</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
 </head>
 <body>
-    <h1>Welcome to the Dashboard</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="flex flex-col items-center p-4 space-y-4">
+                    <button className="w-full bg-black text-white py-3 flex justify-center items-center">
+                        <i className="fab fa-apple mr-2"></i> Pay
+                    </button>
+                    <button className="w-full bg-black text-white py-3 flex justify-center items-center">
+                        <i className="fab fa-google mr-2"></i> Pay
+                    </button>
+                    <div className="w-full border rounded-lg p-4">
+                        <div className="flex items-center mb-4">
+                            
+                            <h2 className="text-xl font-bold">Card</h2>
+                            <div className="ml-auto flex space-x-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" className="w-10"/>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" className="w-10"/>
+                                
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium">Name on card</label>
+                                <input type="text" className="w-full border rounded p-2"/>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium">Card number</label>
+                                <input type="text" className="w-full border rounded p-2"/>
+                            </div>
+                            <div className="flex space-x-4">
+                                <div className="flex-1">
+                                    <label className="block text-sm font-medium">Expiry date</label>
+                                    <input type="text" className="w-full border rounded p-2" placeholder="MM/YY"/>
+                                </div>
+                                <div className="flex-1">
+                                    <label className="block text-sm font-medium">Security code (CVV)</label>
+                                    <input type="text" className="w-full border rounded p-2" placeholder="3 or 4 digit code"/>
+                                </div>
+                            </div>
+                            <button className="w-full bg-blue-600 text-white py-2 rounded">Pay</button>
+                        </div>
+                    </div>
+                    <div className="w-full border-t py-4">
+                        <div className="flex items-center">
+                            <img src="2.png" alt="iDeal Icon" className="mr-2 w-10"/>
+                            <span className="text-lg">PayPal</span>
+                            <input type="radio" name="payment" className="ml-auto"/>
+                        </div>
+                    </div>
+                    <div className="w-full border-t py-4">
+                        <div className="flex items-center">
+                            <img src="1.png" alt="Sofort Icon" className="mr-2 w-10"/>
+                            <span className="text-lg">BOB</span>
+                            <input type="radio" name="payment" className="ml-auto"/>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
 
-    <form id="payment-form">
-        <div id="card-element"><!-- Stripe's card input field --></div>
-        <button id="submit">Pay</button>
-        <p id="error-message"></p>
-        <p id="success-message"></p>
-    </form>
-
-    <script>
-        const stripe = Stripe('your_stripe_publishable_key'); // Add your Stripe publishable key here
-        const elements = stripe.elements();
-        const cardElement = elements.create('card');
-        cardElement.mount('#card-element');
-
-        const form = document.getElementById('payment-form');
-        const submitButton = document.getElementById('submit');
-
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            // Disable the submit button to prevent multiple clicks
-            submitButton.disabled = true;
-
-            const { clientSecret } = await fetch('/create-payment-intent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    amount: 5000, // Example amount: 5000 cents = 50 USD
-                }),
-            }).then((response) => response.json());
-
-            const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: cardElement,
-                },
-            });
-
-            if (error) {
-                document.getElementById('error-message').textContent = error.message;
-                submitButton.disabled = false;
-            } else {
-                if (paymentIntent.status === 'succeeded') {
-                    document.getElementById('success-message').textContent = 'Payment successful!';
-                    submitButton.disabled = false;
-                }
-            }
-        });
+        ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>
 </html>

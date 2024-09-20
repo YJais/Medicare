@@ -2,7 +2,7 @@
     display: inline-block;
     margin: 1em auto;
 }
-.main{
+.box{
 width:350px;
 height: 200px;
 border:2px solid rgb(13, 82, 142);
@@ -17,7 +17,7 @@ border-top-left-radius: 15px;
 border-top-right-radius: 15px;
 
 }
-.main:hover{
+.box:hover{
     display: block;
     cursor:pointer;
     transition: scale(1.2);

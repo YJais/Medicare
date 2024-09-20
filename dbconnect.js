@@ -9,6 +9,9 @@ async function getcollection(collectionname){
 async function getconnect(){
           return await getcollection("clientdata");
 }
+async function docdetail(){
+          return await getcollection("doctorsdetails");
+}
 async function admin(){
           return await getcollection("admindata");
 }
@@ -18,22 +21,7 @@ async function doctor(){
 async function patient(){
           return await getcollection("patientdata");
 }
-// async function doctor(){
-//         const client=new MongoClient("mongodb://localhost:27017/medicare");
-//          let con=await client.connect();
-//          let db=con.db("medicare");
-//          let collection=db.collection("doctordata");
-//          return collection;
-// };
-// async function patient(){
-//         const client=new MongoClient("mongodb://localhost:27017/medicare");
-//          let con=await client.connect();
-//          let db=con.db("medicare");
-//          let collection=db.collection("patientdata");
-//          return collection;
-// };
-
-module.exports={getconnect,admin,doctor,patient};
-// module.exports=admin;
-// module.exports=doctor;
-// module.exports=patient;
+async function appointment(){
+          return await getcollection("appointmentdata");
+}
+module.exports={getconnect,docdetail,admin,doctor,patient,appointment};

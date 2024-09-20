@@ -1,12 +1,12 @@
 body{
-    color:white;
-    background-color: black;
+    color: black;
     font-size: large;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 600;
 }
 table{
-    border: 2px solid white;
+    border: 2px solid black;
+    text-align: center;
 }
 a{
     color:darkmagenta;

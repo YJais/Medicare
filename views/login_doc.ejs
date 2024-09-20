@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn-Medicare</title>
+    <link rel="stylesheet" href="/css/sgn&lgn.css">
+    <script type="text/javaScript">
+        <% if (typeof success !== 'undefined') { %>
+            alert("<%= success %>");
+        <% } %>
+    </script>
+</head>
+<body>
+    <div>
+        <table width="300px" height="500px" align="center" id="loginform">
+            <tr>
+                <td>
+                    <form action="/login_doc" method="post">  <!--To Do implement action method-->
+                        
+                        <fieldset>
+                            <h1 class="frmtitle"><strong>Log In</strong></h1>
+                            <label>E-mail</label>
+                            <input type="email" name="doc_usremail" id="doc_usremail" required>
+                            <% if (errors && errors.email) { %>
+                                <p style="color: red;"><%= errors.email %></p>
+                            <% } %>
+                            <label>Password</label>
+                            <input type="password" name="doc_usrpass" id="doc_usrpass" required>
+                            <% if (errors && errors.password) { %>
+                                <p style="color: red;"><%= errors.password %></p>
+                            <% } %>
+                            <input type="submit" value="Log In" name="lgnbtn" id="lgnbtn">
+                        </fieldset>
+                    </form> 
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

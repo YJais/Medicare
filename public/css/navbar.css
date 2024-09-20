@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+}
+.menu{
+    text-align: right;
+    background-color: #229799;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+a{
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: right;
+}
+a:hover{
+    cursor: pointer;
+}

@@ -16,20 +16,15 @@
 <body>
     <div>
         <%-include('title')%>
-        <hr>
+        
     </div>
-    <div class="menu">
-        <a href="/login_admin">LogOut</a>
-        <hr>
+    <div>
+        <%-include('navbar')%>
     </div>
     </div>
     <div id="content">
         <form method="get" action="/docdata">
-            <button class="main"><h1>Doctors Data</h1></button>
-    </div>
-    <div id="content">
-        <form method="get" action="/patdata">
-        <button class="main"><h1>Patient Data</h1></button>
+            <button class="box"><h1>Doctors Data</h1></button>
     </div>
 </body>
 </html>
