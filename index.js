@@ -20,7 +20,7 @@ app.get("/login_doc",(req,res)=>{
     res.render("login_doc",{errors:{}});
 });
 app.get("/login_admin",(req,res)=>{
-    res.render("login_admin");
+    res.render("login_admin",{errors:{}});
 });
 // app.get("/das",(req,res)=>{
 //     res.render("billing");
@@ -140,79 +140,23 @@ app.get("/my_appointments", async (req, res) => {
     res.render("my_appo", { appointments });
 });
 
-//Doctors Signup
-app.post("/signup_doc",async(req,res)=>{
-    let d_fname=req.body.doc_firname;
-    let d_mname=req.body.doc_midname;
-    let d_lname=req.body.doc_lstname;
-    let d_uname=req.body.doc_usrname;
-    let d_uemail=req.body.doc_usremail;
-    let d_upass=req.body.doc_usrpass;
-    let collection=await docdetail();
-    let errors = {};
-    let doctorWithSameUsername = await collection.findOne({ doc_usrname: d_uname });
-    if (doctorWithSameUsername) {
-        errors.username = "Username is already taken.";
-    }
-    
-    let doctorWithSameEmail = await collection.findOne({ doc_usremail: d_uemail });
-    if (doctorWithSameEmail) {
-        errors.email = "Email is already registered.";
-    }
-    
-    if (Object.keys(errors).length > 0) {
-        console.log("Error detected: ", errors);
-        return res.render("signupdoc", { errors });
-    }    
-    
-    let r= await collection.insertOne({
-        doc_firname:d_fname,
-        doc_midname:d_mname,
-        doc_lstname:d_lname,
-        doc_usrname:d_uname,
-        doc_usremail:d_uemail,
-        doc_usrpass:d_upass
-    });
-    console.log("New doctor data inserted.");
-    res.redirect("/login_doc");
-});
-app.get("/login_doc",(req,res)=>{
-    res.render("login_doc",{ success: "You have successfully signed up! Please log in." })
-});
-
-//Doctors LogIn
-app.post("/login_doc",async(req,res)=>{
-    let d_uemail=req.body.doc_usremail;
-    let d_upass=req.body.doc_usrpass;
-    let collection=await docdetail();
-    let errors={};
-    let user=await collection.findOne({doc_usremail:d_uemail});
-    if(!user){
-        errors.email="E-mail not Found";
-        console.log("E-mail not Found");
-        return res.render("login_doc",{errors});
-    }
-    if (user.doc_usrpass !== d_upass) {
-        errors.password = "Incorrect password.";
-        console.log("Incorrect password.");
-        return res.render("login_doc", { errors });
-    }
-    console.log("Login Successful. Redirecting to dashboard");
-    res.redirect("dashboard_doc");
-});
-// Doctor Dashboard
-app.get("/dashboard_doc",async(req,res)=>{
-    const collection= await appointment();
-    let records=await collection.find({}).toArray()
-    res.render("dashboard_doc",{records}) 
-});
-
-
 //Admin LogIn
 app.post("/login_adminbtn",async(req,res)=>{
     let aname=req.body.adname;
     let apass=req.body.adpass;
     let collection=await admin();
+    let errors={};
+    let user=await collection.findOne({adname:aname});
+    if(!user){
+        errors.ad_name="E-mail not Found";
+        console.log("E-mail not Found");
+        return res.render("login_admin",{errors});
+    }
+    if (user.adpass !== apass) {
+        errors.adpassword="Incorrect password";
+        console.log("Incorrect password");
+        return res.render("login_admin", {errors});
+    }
     console.log("Admin Login Successful. Redirecting to admin dashboard");
     res.redirect("/dashboard_admin");
 });
