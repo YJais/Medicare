@@ -18,10 +18,7 @@ async function admin(){
 async function doctor(){
           return await getcollection("doctordata");
 }
-async function patient(){
-          return await getcollection("patientdata");
-}
 async function appointment(){
           return await getcollection("appointmentdata");
 }
-module.exports={getconnect,docdetail,admin,doctor,patient,appointment};
+module.exports={getconnect,docdetail,admin,doctor,appointment};
