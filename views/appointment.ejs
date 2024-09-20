@@ -6,59 +6,120 @@
     <title>Appointment-Medicare</title>
     <link rel="stylesheet" href="/css/appointment.css">
     <link rel="stylesheet" href="/css/pagestyle.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const deptField = document.getElementById('choosedept');
+    const docField = document.getElementById('d_name');
+    const docList = document.getElementById('doc_list');
+    const feesDisplay = document.getElementById('doc_fees');
+
+    // Fetch doctors when the department is selected
+    deptField.addEventListener('input', function() {
+        const selectedDept = deptField.value;
+
+        // Send an AJAX request to fetch doctors for the selected department
+        fetch(`/getdoctors?doc_dept=${selectedDept}`)
+            .then(response => response.json())
+            .then(doctors => {
+                // Clear the current options in the datalist
+                docList.innerHTML = '';
+
+                // Populate the doctor list with the fetched doctors
+                doctors.forEach(doc => {
+                    const option = document.createElement('option');
+                    option.value = doc.doc_name; // Use 'doc_name' field for the doctor's name
+                    docList.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching doctors:', error));
+    });
+
+    // Fetch and display doctor fees when a doctor is selected
+    docField.addEventListener('input', function() {
+        const selectedDoctor = docField.value;
+
+        // Send an AJAX request to fetch doctor fees for the selected doctor
+        fetch(`/getdoctorfees?doc_name=${selectedDoctor}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.d_fees) {
+                    feesDisplay.textContent = `₹${data.d_fees}`;
+                } else {
+                    feesDisplay.textContent = 'Doctor fees not available';
+                }
+            })
+            .catch(error => console.error('Error fetching doctor fees:', error));
+        
+    });
+});
+    </script>
 </head>
 <body>
     <div>
         <%-include('title')%>
-        <hr>
     </div>
     <div>
         <%-include('navbar')%>
-        <hr>
     </div>
     <div id="main">
         <h1 class="pagtitle"><strong>Get Appointment</strong></h1>
-        <form action="" method="post">
+        <form action="/getappointment" method="post">
             <fieldset>
+
                 <label for="name" class="name">Full Name</label>
-            <input type="text" name="patname" id="patname">
-            <label for="contact" class="contact">Contact No.</label>
-            <input type="number" name="patcontact" id="patcontact">
-            <label for="dept">Department</label>
-            <input type="text" list="dept" name="choosedept" id="choosedept">
-            <datalist id="dept">
-                <option>Cardiology</option>
-                <option>Neurology</option>
-                <option>Pediatrics</option>
-                <option>Gynecology</option>
-                <option>Oncology</option>
-                <option>Orthopedics</option>
-                <option>Urology</option>
-                <option>Dermatology</option>
-                <option>Gastroenterology</option>
-                <option>Nephrology</option>
-                <option>Pulmonology</option>
-                <option>Psychiatry</option>
-                <option>Endocrinology</option>
-                <option>Rheumatology</option>
-                <option>Ophthalmology</option>
-                <option>ENT (Otorhinolaryngology)</option>
-                <option>Hematology</option>
-                <option>Infectious Diseases</option>
-                <option>Physical Medicine and Rehab</option>
-                <option>General Surgery</option>
-                <option>Radiology</option>
-                <option>Pathology</option>
-            </datalist>
+                <input type="text" name="patname" id="patname" required>
 
-            <label for="name">Full Name</label>
-            <input type="text" name="patname" id="patname">
-            <label for="name">Full Name</label>
-            <input type="text" name="patname" id="patname">
+                <label for="age" class="age">Age</label>
+                <input type="number" name="patage" id="patage" required>
 
+                <label for="contact" class="contact">Contact No.</label>
+                <input type="text" name="patcontact" id="patcontact" required>
+
+                <label for="dept">Department</label>
+                <input type="text" list="dept" name="choosedept" id="choosedept" required>
+                <datalist id="dept">
+                    <option>Cardiology</option>
+                    <option>Neurology</option>
+                    <option>Pediatrics</option>
+                    <option>Gynecology</option>
+                    <option>Oncology</option>
+                    <option>Orthopedics</option>
+                    <option>Urology</option>
+                    <option>Dermatology</option>
+                    <option>Gastroenterology</option>
+                    <option>Nephrology</option>
+                    <option>Pulmonology</option>
+                    <option>Psychiatry</option>
+                    <option>Endocrinology</option>
+                    <option>Rheumatology</option>
+                    <option>Ophthalmology</option>
+                    <option>ENT (Otorhinolaryngology)</option>
+                    <option>Hematology</option>
+                    <option>Infectious Diseases</option>
+                    <option>General Surgery</option>
+                    <option>Radiology</option>
+                    <option>Pathology</option>
+                </datalist>
+
+                <label for="d_name" class="doc_name">Doctor Name</label>
+                <input type="text" name="d_name" id="d_name" list="doc_list" required>
+                <datalist id="doc_list">
+
+                </datalist>
+
+                <label for="m_pay" class="modepayment">Mode of Payment</label>
+                <input type="text" name="m_pay" id="m_pay" list="mode_pay" required>
+                <datalist id="mode_pay">
+                    <option>Cash</option>
+                    <option>Card</option>
+                </datalist>
+
+                <label for="fees" class="fees">Doctor Fees:</label>
+                <p id="doc_fees">Select a doctor to see fees</p>
+
+                <input type="submit" value="Submit" name="get_appo" id="get_appo">
             </fieldset>
         </form>
-    </div>
+    </div>    
 </body>
 </html>
-

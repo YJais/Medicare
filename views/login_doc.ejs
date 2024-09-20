@@ -16,17 +16,17 @@
         <table width="300px" height="500px" align="center" id="loginform">
             <tr>
                 <td>
-                    <form action="/login" method="post">  <!--To Do implement action method-->
+                    <form action="/login_doc" method="post">  <!--To Do implement action method-->
                         
                         <fieldset>
                             <h1 class="frmtitle"><strong>Log In</strong></h1>
                             <label>E-mail</label>
-                            <input type="email" name="usremail" id="usremail" required>
+                            <input type="email" name="doc_usremail" id="doc_usremail" required>
                             <% if (errors && errors.email) { %>
                                 <p style="color: red;"><%= errors.email %></p>
                             <% } %>
                             <label>Password</label>
-                            <input type="password" name="usrpass" id="usrpass" required>
+                            <input type="password" name="doc_usrpass" id="doc_usrpass" required>
                             <% if (errors && errors.password) { %>
                                 <p style="color: red;"><%= errors.password %></p>
                             <% } %>

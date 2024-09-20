@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="/css/appointments.css">
+    <link rel="stylesheet" href="/css/pagestyle.css">
+</head>
+<body>
+    <div>
+        <%- include('title') %>
+    </div>
+    <div>
+        <%- include('navbar') %>
+    </div>
+
+    <div class="container">
+        <center>
+            <h1>My Appointments</h1>
+        </center>
+        
+
+        <% if (appointments.length > 0) { %>
+            <table border="1" cellpadding="10" cellspacing="0" align="center">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Age</th>
+                        <th>Contact</th>
+                        <th>Department</th>
+                        <th>Doctor Name</th>
+                        <th>Mode of Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% appointments.forEach(function(appointment) { %>
+                        <tr>
+                            <td><%= appointment.Patient_Name %></td>
+                            <td><%= appointment.Patient_Age %></td>
+                            <td><%= appointment.Patient_Contact %></td>
+                            <td><%= appointment.Department %></td>
+                            <td><%= appointment.Doctor_Name %></td>
+                            <td><%= appointment.Mode_of_Payment %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No appointments found.</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

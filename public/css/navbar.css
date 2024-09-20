@@ -1,5 +1,11 @@
+body{
+    margin: 0;
+}
 .menu{
     text-align: right;
+    background-color: #229799;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 a{
     margin: 10px;

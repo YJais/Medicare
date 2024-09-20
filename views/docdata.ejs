@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocData</title>
+
+    <link rel="stylesheet" href="/css/docdata.css">
+    <link rel="stylesheet" href="/css/pagestyle.css">
+
+</head>
+<body>
+    <div>
+        <%- include('title') %>
+        <hr>
+        <br>
+    </div>
+<center>
+    <h1>Doctors Data</h1> 
+</center>  
+<table width="600px" align="center" border="2px" 
+<tr>
+    <td><h3>Id</h3></td>
+    <td><h3>Name</h3></td>
+    <td><h3>Designation</h3></td>
+    <td><h3>Salary</h3></td>
+    <td><h3>Department</h3></td>
+    <td><h3>Fees</h3></td>
+</tr>
+
+  <% 
+        for(r in records)
+        {
+            %><tr>
+                <td><%=records[r].doc_id%></td>
+                <td><%=records[r].doc_name%></td>
+                <td><%=records[r].doc_desig%></td>
+                <td><%=records[r].doc_sal%></td>
+                <td><%=records[r].doc_dept%></td>
+                <td><%=records[r].doc_fees%></td>
+            </tr>
+            <%
+        }
+    %>
+</table>
+<caption>
+    <center>
+        <a href="/insertdocdata">Click here to insert record</a><br>
+        <a href="/deletedocdata">Click here to delete record</a><br>
+    </center>
+</caption>
+</body>
+</html>

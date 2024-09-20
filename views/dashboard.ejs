@@ -15,24 +15,21 @@
 <body>
     <div>
         <%-include('title')%>
-        <hr>
     </div>
-    <div id="content">
-        <form method="get" action="/getappointment">
-            <button class="main"><h1>Book Appointment</h1></button>
-        </form>
-        <form method="get" action="/pay">
-        <button class="main"><h1>Make Payment</h1></button>
-        </form>
-        
+    <div>
+        <%-include('navbar')%>
     </div>
-    <div id="content">
-        <form method="get" action="/pres">
-            <button class="main"><h1>Prescriptions</h1></button>
-        </form>
-        <form method="get" action="/feed">
-        <button class="main"><h1>Feedback</h1></button>
-        </form>
-    </div>
+    <main>
+        <div id="content">
+            <form method="get" action="/getappointment">
+                <button class="box"><h1>Book Appointment</h1></button>
+            </form>            
+        </div>
+        <div id="content">
+            <form method="get" action="/my_appointments">
+                <button class="box"><h1>My Appointments</h1></button>
+            </form>
+        </div>
+    </main> 
 </body>
 </html>
