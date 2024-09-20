@@ -1,5 +1,5 @@
 const express = require('express');
-const {getconnect,docdetail,admin,doctor,appointment}= require('./dbconnect');
+const {getconnect,admin,doctor,appointment}= require('./dbconnect');
 const app=express();
 app.set("view engine","ejs");
 app.use(express.static(__dirname+'/public'))
