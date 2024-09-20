@@ -1,5 +1,5 @@
 const express = require('express');
-const {getconnect,docdetail,admin,doctor,appointment}= require('./dbconnect');
+const {getconnect,admin,doctor,appointment}= require('./dbconnect');
 const app=express();
 app.set("view engine","ejs");
 app.use(express.static(__dirname+'/public'))
@@ -134,6 +134,7 @@ app.get("/getdoctorfees", async (req, res) => {
 });
 //My Appointment
 app.get("/my_appointments", async (req, res) => {
+    const user= await getconnect();
     const userEmail = req.query.usremail;
     const collection = await appointment(); 
     const appointments = await collection.find({ usremail: userEmail }).toArray();
