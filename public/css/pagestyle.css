@@ -44,3 +44,11 @@ fieldset{
     text-decoration: none;
     padding:1px 6px 1px 6px;
 }
+#btn:hover{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

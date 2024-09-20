@@ -1,5 +1,5 @@
 const express = require('express');
-const {getconnect,docdetail,admin,doctor,patient, appointment}= require('./dbconnect');
+const {getconnect,docdetail,admin,doctor,appointment}= require('./dbconnect');
 const app=express();
 app.set("view engine","ejs");
 app.use(express.static(__dirname+'/public'))
@@ -22,9 +22,9 @@ app.get("/login_doc",(req,res)=>{
 app.get("/login_admin",(req,res)=>{
     res.render("login_admin");
 });
-app.get("/billing",(req,res)=>{
-    res.render("billing");
-});
+// app.get("/das",(req,res)=>{
+//     res.render("billing");
+// });
 //Client Signup
 app.post("/signup",async(req,res)=>{
     let fname=req.body.firname;
@@ -77,9 +77,9 @@ app.post("/login",async(req,res)=>{
         return res.render("login",{errors});
     }
     if (user.usrpass !== upass) {
-        errors.password = "Incorrect password.";
-        console.log("Incorrect password.");
-        return res.render("login", { errors });
+        errors.password="Incorrect password";
+        console.log("Incorrect password");
+        return res.render("login", {errors});
     }
     console.log("Login Successful. Redirecting to dashboard");
     res.redirect("/dashboard");
@@ -134,14 +134,9 @@ app.get("/getdoctorfees", async (req, res) => {
 });
 //My Appointment
 app.get("/my_appointments", async (req, res) => {
-    // Assuming you get the user's email or ID from session or query params
     const userEmail = req.query.usremail;
-    const collection = await appointment(); // Access the appointments collection
-
-    // Fetch appointments for the current user (based on email)
+    const collection = await appointment(); 
     const appointments = await collection.find({ usremail: userEmail }).toArray();
-
-    // Render the 'my_appo.ejs' with appointments data
     res.render("my_appo", { appointments });
 });
 
@@ -203,20 +198,15 @@ app.post("/login_doc",async(req,res)=>{
         return res.render("login_doc", { errors });
     }
     console.log("Login Successful. Redirecting to dashboard");
-    res.redirect("/dashboard_doc");
+    res.redirect("dashboard_doc");
 });
-// Doctor Dashboard Route to display appointments
-app.get("/dashborad_doc", async (req, res) => {
-    // Assuming you get the user's email or ID from session or query params
-    const doc_name = req.query.doc_usrname;
-    const collection = await appointment(); // Access the appointments collection
-
-    // Fetch appointments for the current user (based on email)
-    const appointments = await collection.find({ Doctor_Name: doc_name }).toArray();
-
-    // Render the 'my_appo.ejs' with appointments data
-    res.render("dashboard_doc", { appointments });
+// Doctor Dashboard
+app.get("/dashboard_doc",async(req,res)=>{
+    const collection= await appointment();
+    let records=await collection.find({}).toArray()
+    res.render("dashboard_doc",{records}) 
 });
+
 
 //Admin LogIn
 app.post("/login_adminbtn",async(req,res)=>{

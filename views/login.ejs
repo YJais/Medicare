@@ -27,6 +27,9 @@
                             <% } %>
                             <label>Password</label>
                             <input type="password" name="usrpass" id="usrpass" required>
+                            <% if (errors && errors.password) { %>
+                                <p style="color: red;"><%= errors.password %></p>
+                            <% } %>
                             <input type="submit" value="Log In" name="lgnbtn" id="lgnbtn">
                         </fieldset>
                     </form> 
