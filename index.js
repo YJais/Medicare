@@ -134,6 +134,7 @@ app.get("/getdoctorfees", async (req, res) => {
 });
 //My Appointment
 app.get("/my_appointments", async (req, res) => {
+    const user= await getconnect();
     const userEmail = req.query.usremail;
     const collection = await appointment(); 
     const appointments = await collection.find({ usremail: userEmail }).toArray();

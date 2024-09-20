@@ -9,9 +9,6 @@ async function getcollection(collectionname){
 async function getconnect(){
           return await getcollection("clientdata");
 }
-async function docdetail(){
-          return await getcollection("doctorsdetails");
-}
 async function admin(){
           return await getcollection("admindata");
 }
@@ -21,4 +18,4 @@ async function doctor(){
 async function appointment(){
           return await getcollection("appointmentdata");
 }
-module.exports={getconnect,docdetail,admin,doctor,appointment};
+module.exports={getconnect,admin,doctor,appointment};
