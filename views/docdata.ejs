@@ -12,8 +12,9 @@
 <body>
     <div>
         <%- include('title') %>
-        <hr>
-        <br>
+    </div>
+    <div>
+        <%-include('navbar_admin')%>
     </div>
 <center>
     <h1>Doctors Data</h1> 
@@ -45,8 +46,8 @@
 </table>
 <caption>
     <center>
-        <a href="/insertdocdata">Click here to insert record</a><br>
-        <a href="/deletedocdata">Click here to delete record</a><br>
+        <a class="bi" href="/insertdocdata">Click here to insert record</a><br>
+        <a class="bi" href="/deletedocdata">Click here to delete record</a><br>
     </center>
 </caption>
 </body>
